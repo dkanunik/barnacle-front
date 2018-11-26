@@ -1,0 +1,40 @@
+<div class="card border-primary mb-3 animal-list">
+    <div class="card-header animal-list-header">
+        <label class="col-form-label col-form-label-sm flex-item"
+               for="animalSearch">Search:&nbsp;</label>
+
+        <input class="form-control form-control-sm flex-item"
+               type="text"
+               id="animalSearch">
+
+        <span style="width: 100%"></span>
+
+        <button
+                type="button"
+                class="btn btn-primary btn-sm flex-item button-animal-new"
+                title="Create animal"
+                (click)="goToAnimalCreate()">
+            New
+        </button>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover table-animals">
+            <thead>
+            <tr>
+                <th style="width: 90%" scope="col">Name</th>
+                <th scope="col">View</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let animal of animals">
+                <td scope="row" class="cell-animal-name">{{animal.name}}</td>
+                <td class="cell-animal-details">
+                    <button class="btn btn-primary btn-sm btn-animal-details" type="button" title="Animal details"
+                            (click)="goToAnimalDetails(animal)">...
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,117 @@
+<div class="card border-primary mb-3 interrogation">
+    <div class="card-header interrogation-header">
+        <span class="flex-item interrogation-title">Interrogation</span>
+        <button class="btn btn-primary btn-sm button-view-interrogation-new" type="button" title="New"
+                (click)="onNew()">New
+        </button>
+        <span class="flex-item" style="width: 100%"></span>
+        <button *ngIf="isAnswerButtonDisplayable()" class="btn btn-primary btn-sm button-view-interrogation-no" type="button"
+                title="No"
+                (click)="onNo()">No
+        </button>
+
+        <button *ngIf="isAnswerButtonDisplayable()" class="btn btn-primary btn-sm button-view-interrogation-yes" type="button"
+                title="Yes"
+                (click)="onYes()">Yes
+        </button>
+
+        <button *ngIf="isConclusionButtonsDisplayable()" class="btn btn-primary btn-sm button-view-interrogation-incorrect" type="button"
+                title="Incorrect"
+                (click)="onIncorrect()">Incorrect
+        </button>
+
+        <button *ngIf="isConclusionButtonsDisplayable()" class="btn btn-primary btn-sm button-view-interrogation-correct" type="button"
+                title="Correct"
+                (click)="onCorrect()">Correct
+        </button>
+
+        <button *ngIf="isNewAnimalElementsDisplayable()" class="btn btn-primary btn-sm button-animal-name-save"
+                type="button" title="Save"
+                (click)="onSave(animalName.value)">Save
+        </button>
+    </div>
+
+    <div class="card-body">
+        <div [ngClass]="getClassForPrevalentFeatureBlock()">
+            {{prevalentFeature.name}}
+        </div>
+
+        <div [ngClass]="getClassForRelatedAnimalBlock()">
+            <div>I think it is a {{relatedAnimal.name}}</div>
+        </div>
+
+        <div [ngClass]="getClassForConclusionBlock()">
+            <div>I don't know this animal. Tell me, please, who is it?</div>
+            <div>
+                <input #animalName placeholder="Animal name" class="form-control-sm flex-item input-new-animal-name"/>
+            </div>
+        </div>
+
+        <div [ngClass]="getClassForSuccessfulBlock()">
+            <div>Awesome!!! Les't try again?</div>
+        </div>
+    </div>
+</div>
+
+<div class="analysis" style="justify-content: space-between; display: flex;">
+    <div class="flex-item analysis-features-container" *ngIf="relatedAnimals && relatedAnimals.length > 0">
+        <div class="card border-primary mb-3 analysis-features-card">
+            <div class="card-header analysis-features-header">
+                Appropriate features
+            </div>
+
+            <div class="card-body analysis-features-body">
+                <ul class="analysis-features-list">
+                    <li *ngFor="let feature of appropriateFeatures">
+                        {{feature.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-item analysis-features-container" *ngIf="relatedAnimals && relatedAnimals.length > 0">
+        <div class="card border-primary mb-3 analysis-features-card">
+            <div class="card-header analysis-features-header">
+                Unsuitable features
+            </div>
+
+            <div class="card-body analysis-features-body">
+                <ul class="analysis-features-list">
+                    <li *ngFor="let feature of unsuitableFeatures">
+                        {{feature.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="analysis" *ngIf="relatedAnimals && relatedAnimals.length > 0">
+    <div class="card border-primary mb-3 analysis-animals-related-card">
+        <div class="card-header analysis-animals-related-header">
+            Related animals
+        </div>
+
+        <div class="card-body">
+            <table class="table table-hover table-animals">
+                <thead>
+                <tr>
+                    <th style="width: 90%" scope="col">Name</th>
+                    <th scope="col">View</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let animal of relatedAnimals">
+                    <td scope="row" class="cell-animal-name">{{animal.name}}</td>
+                    <td class="cell-animal-details">
+                        <button class="btn btn-primary btn-sm btn-animal-details" type="button" title="Animal details"
+                                (click)="goToAnimalDetails(animal)">...
+                        </button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

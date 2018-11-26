@@ -1,0 +1,113 @@
+<div class="card border-primary mb-3 animal-edit">
+    <div class="card-header animal-edit-header">
+        <div class="animal-edit-block-title">Edit animal</div>
+        <span style="width: 100%"></span>
+        <button class="btn btn-primary btn-sm flex-item button-animal-details" title="Go to animal details"
+                (click)="goToAnimalDetails()">Cancel
+        </button>
+        <button class="btn btn-primary btn-sm flex-item button-animal-save" title="Save modifications"
+                (click)="onSaveAnimal()">Save
+        </button>
+    </div>
+
+    <div class="card-body">
+        <span>Name:</span>
+        <span>
+            <input [(ngModel)]="animal.name" placeholder="name" class="form-control-sm input-animal-name"/>
+        </span>
+    </div>
+</div>
+
+<!-- Add features -->
+<div class="card border-primary mb-3 animal-edit">
+    <div class="card-header animal-edit-header">
+        <div class="animal-edit-block-title">Add feature:</div>
+        <input #featureName
+               (keyup)="onFeatureNameInputChange(featureName.value)"
+               (keyup.enter)="onFeatureSelect(featureName.value)"
+               class="flex-item form-control-sm input-feature-name"
+               [(ngModel)]="inputFeatureName">
+        <span style="width: 100%"></span>
+        <button *ngIf="features.length == 0 && featureName.value.trim().length > 0"
+                class="btn btn-primary btn-sm flex-item create-animal-button"
+                (click)="onCreateFeature(featureName.value)">Create
+        </button>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th style="width: 90%" scope="col">
+                    Feature name
+                </th>
+                <th scope="col">Add</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let feature of features">
+                <td scope="row" class="cell-add-feature">{{feature.name}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" type="button" title="Delete animal"
+                            (click)="onFeatureSelect(feature)">+
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Defined features -->
+<div class="card border-primary mb-3 animal-edit">
+    <div class="card-header animal-edit-header">
+        <div class="animal-edit-block-title">Defined features</div>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th style="width: 90%" scope="col">
+                    Feature name
+                </th>
+                <th scope="col">Delete</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let selectedFeature of selectedFeatures">
+                <td scope="row" class="cell-defined-feature">{{selectedFeature.name}}</td>
+                <td>
+                    <button class="btn btn-primary btn-sm" type="button" title="Delete animal"
+                            (click)="onFeatureDelete(selectedFeature)">X
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Excluded features -->
+<div class="card border-primary mb-3 animal-edit">
+    <div class="card-header animal-edit-header">
+        <div class="animal-edit-block-title">Excluded features</div>
+    </div>
+
+    <div class="card-body">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th style="width: 90%" scope="col">
+                        Feature name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let excludedFeature of excludedFeatures">
+                <td scope="row" class="cell-defined-feature">{{excludedFeature.name}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

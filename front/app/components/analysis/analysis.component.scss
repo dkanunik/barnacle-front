@@ -1,0 +1,34 @@
+.interrogation {
+  .interrogation-header {
+    justify-content: space-between;
+    display: flex;
+
+    button {
+      margin-left: 10px;
+    }
+  }
+
+  .feature-known {
+    text-align: center;
+    width: 100%;
+  }
+
+  .block-display {
+    text-align: center;
+    width: 100%;
+  }
+
+  .block-hide {
+    display: none;
+  }
+
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+  }
+}
+
+.analysis {
+  .analysis-features-container {
+    width: 49%;
+  }
+}
