@@ -1,5 +1,5 @@
 {
-  "name": "barnacle",
+  "name": "barnacle-front",
   "version": "1.0.0",
   "description": "Front-end of Barnacle application",
   "main": "main.ts",
