@@ -15,7 +15,7 @@ node {
     }
 
     stage('Build docker image') {
-        sh 'docker build -t dkanunik/barnacle-front:latest .'
+        sh 'docker build -t dkanunik/barnacle-front:latest docker/Dockerfile'
     }
 
     stage('Publish docker image') {
