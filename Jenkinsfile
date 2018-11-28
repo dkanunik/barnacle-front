@@ -19,7 +19,7 @@ node {
     }
 
     stage('Publish docker image') {
-        withCredentials([usernamePassword(credentialsId: 'dockerрub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
             sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
             sh 'docker push dkanunik/barnacle-front:latest'
         }
