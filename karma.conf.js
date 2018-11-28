@@ -52,7 +52,7 @@ module.exports = function (config) {
         logLevel: config.LOG_INFO,
         autoWatch: true,
 
-        browsers: ['Chrome'],
+        browsers: ['ChromiumNoSandbox'],
         customLaunchers: {
             ChromiumNoSandbox: {
                 base: 'ChromiumHeadless',
