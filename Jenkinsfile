@@ -11,7 +11,7 @@ node {
     }
 
     stage('RUN Unit tests') {
-        sh 'npm run test:unit'
+        sh 'npm run test:unit'tewrgfdxjc
     }
 
     stage('Build docker image') {
