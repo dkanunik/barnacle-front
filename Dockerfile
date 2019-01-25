@@ -16,7 +16,7 @@ RUN npm config set unsafe-perm=true
 
 COPY package*.json ./
 
-RUN npm install --unsafe-perm=true --allow-root
+RUN npm install --unsafe-perm=true --allow-root --only=production
 
 COPY . .
 
