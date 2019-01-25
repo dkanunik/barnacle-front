@@ -60,7 +60,7 @@
     "ng": "node_modules/.bin/ng",
     "build": "tsc",
     "front:local:start": "node_modules/.bin/ng serve --host 0.0.0.0",
-    "front:remote:start": "node_modules/.bin/ng serve --host 0.0.0.0  --environment ",
+    "front:remote:start": "node_modules/.bin/ng serve --host 0.0.0.0",
     "test:unit": "rm -rf reports & node_modules/.bin/ng test",
     "test:coverage": "rm -rf reports & node_modules/.bin/ng test --code-coverage",
     "reports:clean": "rm -rf reports",
