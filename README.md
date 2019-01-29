@@ -2,19 +2,23 @@
 
 ### Environment
 
-Start front server
+Start front server:
 ```
-npm run front:start
+$ npm run front:start
 ```
 ##### Port
 ```
 4200
 ```
+##### Back host variable
+```
+front/environments/environment.ts
+```
 ##### Front unit tests
 ``` 
-npm run test:unit
+$ npm run test:unit
 ```
 ##### Front tests coverage
 ```
-npm run test:coverage
+$ npm run test:coverage
 ```
